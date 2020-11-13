@@ -1,0 +1,1 @@
+print(raw_input()%10000) #dfasdfasfafasfasfasfasffadfdfasdfsadfasdfasf
