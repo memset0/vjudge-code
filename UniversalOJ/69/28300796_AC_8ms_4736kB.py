@@ -1,0 +1,1 @@
+print"input n\ninput m\na=0\nb=1\nu=a + b\nv=a + b\nw=u - v\nif w goto 5\np=u % m\nq=u % m\nw=p - q\nif w goto 9\na=b\nb=p\nu=n - 1\nv=n - 1\nw=u - v\nif w goto 15\nn=u\nif n goto 5\noutput a".replace('=',' = ')
