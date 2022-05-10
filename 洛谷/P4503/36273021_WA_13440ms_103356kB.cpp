@@ -1,0 +1,87 @@
+// luogu-judger-enable-o2
+// ==============================
+//  author: memset0
+//  website: https://memset0.cn
+// ==============================
+#include <bits/stdc++.h>
+#define ll long long
+#define rep(i,l,r) for (int i = l; i <= r; i++)
+#define getc(x) getchar(x)
+#define putc(x) putchar(x)
+
+template <typename T> inline void read(T &x) {
+	x = 0; register char ch; register bool fl = 0;
+	while (ch = getc(), ch < 48 || 57 < ch) fl ^= ch == '-'; x = (ch & 15);
+	while (ch = getc(), 47 < ch && ch < 58) x = (x << 1) + (x << 3) + (ch & 15);
+	if (fl) x = -x;
+}
+template <typename T> inline void readc(T &x) {
+	while (x = getc(), !islower(x) && !isupper(x));
+}
+template <typename T> inline void print(T x, char c = ' ') {
+	static int buf[40];
+	if (x == 0) { putc('0'); putc(c); return; }
+	if (x < 0) putc('-'), x = -x;
+	for (buf[0] = 0; x; x /= 10) buf[++buf[0]] = x % 10 + 48;
+	while (buf[0]) putc((char) buf[buf[0]--]);
+	putc(c);
+}
+
+const int maxn = 30010, maxm = 210;
+const int M = 131;
+const int P = 998244353;
+
+int n, m, t, ans;
+int a[maxm];
+char s[maxm];
+
+int now, val, invM, mul[maxm], l[maxm], r[maxm];
+
+typedef std::map < int, int > mapType;
+typedef mapType::iterator iterator;
+mapType map[maxm];
+
+int change(char c) {
+	if ('a' <= c && c <= 'z') return c - 'a' + 1;
+	if ('A' <= c && c <= 'Z') return c - 'A' + 27;
+	if ('0' <= c && c <= '9') return c - '0' + 53;
+	if (c == '_') return 63;
+	if (c == '@') return 64;
+}
+
+int inv(int x, int p) {
+	if (x == 0 || x == 1) return 1;
+	return 1ll * (p - p / x) * inv(p % x, p) % p;
+}
+
+int main() {
+	// freopen("1.in", "r", stdin);
+
+	read(n), read(m), read(t);
+	invM = inv(M % P, P);
+	mul[0] = 1;
+	for (int i = 1; i <= m; i++)
+		mul[i] = 1ll * mul[i - 1] * M % P;
+
+	for (int k = 1; k <= n; k++) {
+		scanf("%s", s + 1);
+		for (int i = 1; i <= m; i++)
+			a[i] = change(s[i]);
+		for (int i = 1; i <= m; i++)
+			l[i] = (1ll * l[i - 1] * M + a[i]) % P;
+		for (int i = m; i >= 1; i--)
+			r[i] = (1ll * r[i + 1] * invM + a[i]) % P;
+		for (int i = 1; i <= m; i++)
+			r[i] = 1ll * r[i] * mul[m - 1] % P;
+		for (int i = 1; i <= m; i++) {
+			now = (1ll * l[i - 1] * mul[m - i] + r[i + 1]) % P;
+			val = map[i][now];
+			ans += val;
+			map[i][now] = val + 1;
+		}
+		// putc('\n');
+	}
+	print(ans, '\n');
+
+	return 0;
+}

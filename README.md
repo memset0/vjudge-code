@@ -1,4 +1,4 @@
-# vjudge-code ![](https://img.shields.io/badge/Solved-1869-brightgreen)
+# vjudge-code ![](https://img.shields.io/badge/Solved-2753-brightgreen)
 
 个人所有在 [vjudge.net](https://vjudge.net) 上的提交。
 

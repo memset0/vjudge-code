@@ -1,0 +1,1 @@
+import math;print(str(math.gcd(int(input()), int(input()))))

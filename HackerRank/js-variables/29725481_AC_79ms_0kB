@@ -1,0 +1,1 @@
+var newVariable = "My First Variable"; // 123123213123213123213123213
