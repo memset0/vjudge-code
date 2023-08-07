@@ -1,4 +1,4 @@
-# vjudge-code ![](https://img.shields.io/badge/Solved-2824-brightgreen)
+# vjudge-code ![](https://img.shields.io/badge/Solved-3279-brightgreen)
 
-个人所有在 [vjudge.net](https://vjudge.net) 上的代码，提交时间和做题时间不一定相关。
+我在 [vjudge.net](https://vjudge.net) 上的所有提交，提交时间不一定是做题时间。
 
