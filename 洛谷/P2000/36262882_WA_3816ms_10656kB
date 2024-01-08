@@ -1,0 +1,5 @@
+const fs = require('fs')
+const data = fs.readFileSync('/dev/stdin')
+const result = data.toString('ascii').trim().split(' ').map(x => parseInt(x)).reduce((a) => (a+1)*(a+2)*(a+3)*(a+4), 0)
+console.log(result)
+process.exit()

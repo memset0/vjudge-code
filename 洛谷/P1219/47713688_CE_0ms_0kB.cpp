@@ -1,0 +1,1 @@
+c,u,r[99];d(x,y,z,w){int p=u&(~(x|y|z)),_=0;if(z^u){for(;p;r[w]=__builtin_ffs(_),d((x|_)/2,(y|_)*2,z|_,w+1))p-=_=p&-p;}else if(++c<4){for(;++_<w;printf("%d ",r[_]));puts("");}}main(){scanf("%d",&u);u=(1<<u)-1;d(0,0,0,1);printf("%d",c);}
